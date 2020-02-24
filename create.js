@@ -31,5 +31,5 @@ file.on('close', function() {
   .then(() => Promise.all(rows.map(s => s.save()))) //save all rows
   .then(() => mongoose.connection.close())
   .then(() => console.log('Ready.')) //let us know when database is ready
-
-}).catch(error => console.error(error.stack));
+  .catch(error => console.error(error.stack));
+});
