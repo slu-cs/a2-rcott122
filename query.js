@@ -8,7 +8,7 @@ connect(); //to the database
 const queries = [
 
   //How many registered voters live in the Canton
-  Voters.find().in('zip_code').equals(13617).count(),
+  Voters.find().where('zip_code').equals(13617).count(),
 
   //What are the full names of all the registered voters whose first name is STARR
   Voters.find().where('first_name').equals('STARR'),
