@@ -19,7 +19,8 @@ file.on('line', function(line) {
     last_name: column[1],
     zip_code: column[2],
     history: column[3]
-  });
+    });
+  );
  });
 
 
