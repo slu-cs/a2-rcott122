@@ -28,8 +28,8 @@ file.on('line', function(line) {
 file.on('close', function() {
   //delete any previous data
   mongoose.connection.dropDatabase()
-  .then(() => Promise.all(rows.map(s => s.save())))
+  .then(() => Promise.all(rows.map(s => s.save()))) //save all rows
   .then(() => mongoose.connection.close())
-  .then(() => console.log('Ready'))
+  .then(() => console.log('Ready.')) //let us know when database is ready
   .catch(error => console.error(error.stack));
 });
