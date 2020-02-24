@@ -30,6 +30,6 @@ Promise.all(queries)
     console.log('Voters named Starr: ', results[1].map(n => n.first_name +' '+ n.last_name));
     console.log('Voters that voted in the 2016 General Election: ', results[2]);
     console.log('Last alphabetical last name in the county: ', results[3].map(l => l.last_name));
-    console.log('Amount of distinct zip codes in the county: ', results[4]);
+    console.log('Amount of distinct zip codes in the county: ', results[4].length);
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
