@@ -13,7 +13,7 @@ connect(); //to the database
 const rows = [];
 file.on('line', function(line) {
   const column = line.split(',');
-  rows.push({
+  rows.push(
     new Voter({
     first_name: column[0],
     last_name: column[1],
@@ -21,7 +21,7 @@ file.on('line', function(line) {
     history: column[3]
   });
  });
-});
+
 
 file.on('close', function() {
   //delete any previous data
