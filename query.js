@@ -29,7 +29,7 @@ Promise.all(queries)
     console.log('Registered voters in Canton: ', result[0]);
     console.log('Voters named Starr: ', result[1].map(n => n.first_name +' '+ n.last_name));
     console.log('Voters that voted in the 2016 General Election: ', result[2].length);
-    console.log('Last alphabetical last name in the county: ', result[3][0].map(l => l.last_name));
+    console.log('Last alphabetical last name in the county: ', result[3][0].last_name));
     console.log('Amount of distinct zip codes in the county: ', result[4].length); //had to use length here due to a deprecation error I kept getting
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
