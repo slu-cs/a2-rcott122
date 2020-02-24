@@ -14,7 +14,7 @@ const queries = [
   Voters.find().where('first_name').equals('STARR'),
 
   //How many people voted in the 2016 general election
-  Voters.find('histroy':{$regex:'GE16'}),
+  Voters.find('history':{$regex:'GE16'}),
 
   //What is the last name that comes last in the county in alphabetical order
   Voters.find().sort('-last_name').limit(1),
