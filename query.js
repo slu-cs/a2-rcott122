@@ -20,7 +20,7 @@ const queries = [
   Voters.find().sort('-last_name').limit(1),
 
   //How many zip codes does the county contain
-  Voters.find().distinct('zip_code')
+  Voters.find().distinct('zip_code') //couldn't use count here due to deprecation error
 ];
 
 //run the queries
@@ -30,6 +30,6 @@ Promise.all(queries)
     console.log('Voters named Starr: ', result[1].map(n => n.first_name +' '+ n.last_name));
     console.log('Voters that voted in the 2016 General Election: ', result[2]);
     console.log('Last alphabetical last name in the county: ', result[3].map(l => l.last_name));
-    console.log('Amount of distinct zip codes in the county: ', result[4].length); //had to use length here due to a deprecation warning I kept getting
+    console.log('Amount of distinct zip codes in the county: ', result[4].length); //had to use length here due to a deprecation error I kept getting
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
