@@ -26,7 +26,7 @@ file.on('line', function(line) {
 
 file.on('close', function() {
   //delete any previous data
-  mongoose.connection.dropDatabase();
+  mongoose.connection.dropDatabase()
   .then(() => Promise.all(votes.map(s => s.save())))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Ready'))
