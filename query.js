@@ -20,16 +20,16 @@ const queries = [
   Voters.find().sort('-last_name').limit(1),
 
   //How many zip codes does the county contain
-  Voters.find().distinct('zip_code')
+  Voters.find().distinct('zip_code').count()
 ];
 
 //run the queries
 Promise.all(queries)
   .then(function(results) {
     console.log('Registered voters in Canton: ', results[0]);
-    console.log('Voters named Starr: ', results[1]);
+    console.log('Voters named Starr: ', results[1].map(n => n.first_name +' '+ n.last_name));
     console.log('Voters that voted in the 2016 General Election: ', results[2]);
-    console.log('Last alphabetical last name in the county: ', results[3]);
+    console.log('Last alphabetical last name in the county: ', results[3].map(l => l.last_name));
     console.log('Amount of distinct zip codes in the county: ', results[4]);
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
