@@ -17,7 +17,7 @@ const queries = [
   Voters.find().where('history').in('GE16').count(),
 
   //What is the last name that comes last in the county in alphabetical order
-  Voters.find().sort('-last_name').limit(1), //had to look up limit in javascript documantation
+  Voters.find().sort('-last_name').limit(1),
 
   //How many zip codes does the county contain
   Voters.find().distinct('zip_code')
