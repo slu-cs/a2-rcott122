@@ -30,4 +30,5 @@ file.on('close', function() {
   then(() => Promise.all(votes.map(s => s.save())))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Ready'))
-}).catch(error => console.error(error.stack));
+  .catch(error => console.error(error.stack));
+});
