@@ -4,11 +4,12 @@ const connect = require('./db');
 const Voter = require('./schema');
 const fs = require('fs');
 const readline = require('readline');
+
+connect(); //to the database
+
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
-
-connect(); //to the database
 
 const rows = [];
 file.on('line', function(line) {
