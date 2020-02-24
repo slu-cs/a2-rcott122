@@ -1,4 +1,4 @@
-//define a plan for a collection
+//define a plan for collection
 const mongoose = require('mongoose');
 const fs = require('fs');
 const readline = require('readline');

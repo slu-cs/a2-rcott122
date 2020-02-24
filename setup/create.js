@@ -1,4 +1,4 @@
-//store some data in the faculry database
+//store some data in the voters database
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
@@ -23,8 +23,10 @@ file.on('line', function(line) {
  });
 });
 
-file.on('close', function(line) {
+file.on('close', function() {
   //delete any previous data
   mongoose.connection.dropDatabase();
-  .then(() => );
-})
+  .then(() => Promise.all(votes.map(s => s.save()));
+  .then(() => mongoose.connection.close());
+  .then(() => console.log('Ready'));
+}).catch(error => console.error(error.stack));
